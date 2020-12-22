@@ -1,0 +1,88 @@
+
+/* Style The Dropdown Button */
+.dropbtn {
+  /* background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer; */
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  /* position: relative;
+  display: inline-block; */
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown {
+  transition: 0.5s;
+  font-weight: 500;
+  color: cornflowerblue;
+  cursor: pointer;
+  padding-left: 0px;
+  margin-top: 15px;
+  /* font-size: 19px; */
+  max-height: 50px;
+  /* background: cornflowerblue; */
+  border-top: 4px solid cornflowerblue;
+  color: cornflowerblue;
+  /* background: cornflowerblue; */
+  opacity: 1;
+  border-radius: 5px;
+  /* color: white; */
+  box-shadow: 3px 3px 5px 3px rgb(163, 157, 185);
+  /* height: 100%; */
+  /* width: 100%; */
+  text-align: center;
+}
+.dropdown:hover{
+  transition: 0.5s;
+  /* background: hotpink; */
+  border-top: 4px solid hotpink;
+  color: cornflowerblue;
+  border-radius: 10px;
+}
+/* {
+  font-weight: 500;
+  color: darkslategray;
+  cursor: pointer;
+  padding-left: 0px;
+
+} */
+.dropdown:hover{
+  transition: 0.5s;
+  box-shadow: 3px 3px 5px 1px rgb(163, 157, 185);
+  min-width: 100%;
+  min-height: 30px;
+  /* border: 2px solid cornflowerblue; */
+  border-radius: 10px;
+}
+a{
+  text-align: center;
+}
+.dropdown-menu {
+  border-top: 4px solid hotpink;
+  position: relative !important;
+  /* transform: none !important; */
+  /* top: none !important; */
+  /* left: 0px; */
+  will-change: transform;
+  transition: 0.5s;
+  width: -webkit-fill-available;
+  box-shadow: 3px 3px 5px 1px rgb(163, 157, 185);
+  max-height: 600px;
+  overflow-y: scroll;
+  z-index: 100;
+
+}
+

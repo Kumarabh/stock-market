@@ -1,0 +1,58 @@
+<!-- <div class="row">
+    <div class="col-xs-2 rounded p-1" id="side21" style="min-width: 10%;max-width: 10%; min-height:100px;">
+        <span class="rounded">
+            <img src="{{stockHomeImage.url}}" style="width: 100%;height: 100%;" alt="..." class="rounded">
+        </span>
+    </div>
+    <div class="col-xs-10 rounded p-1" id="side22"
+        style="border: none groove;min-width: 90%;max-width: 90%; min-height:100px;">
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs mt-3 shadow" style="border-top: none; min-height: 500px;min-width: 100%;"
+        id="home-content-div">
+    </div>
+</div> -->
+
+<div class="row">
+
+    <div class="col-sm3">
+
+    </div>
+    <div class="col-sm-6">
+
+        <!-- <div class="row"> -->
+<!-- for upper div start -->
+            <div class="col-sm" style="width: 300px;height: 50px;;border: 1px  groove;">
+                <div class="row">
+                    <div class="col-sm-10 m-0 p-0">
+                        <a  style="text-decoration: none; " id="dropdown-label" (click) = "enableDropdownLabel()">select</a>
+                        <input class="" type="text" id="dropdown-input" (keyup) = "filterOptions($event.target.value)" style = "width:300px;height:-webkit-fill-available;border: none ;display:none" placeholder="select">
+                    </div>
+                    <div class="col-sm-2" >
+                        <span>
+                            <i id="dropDown-icon" class="fa fa-caret-down" (click) = "manageDropdown()"></i>
+
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+            <!-- for upper div end -->
+<!-- lower div start -->
+            <div class="col-sm m-0" id="dropdown-content" style="display: none;width: 300px;min-height: 200px;max-height: 200px;overflow-y: scroll;border: 1px groove;">
+            
+                  <!-- <p class="text-center" *ngFor="let prf of dataSetOfUserTypes" [ngValue]="prf" (click) = "selectUserType(prf)">
+                    {{prf}}
+                   </p> -->
+
+            </div>
+
+        <!-- </div> -->
+
+    </div>
+    <div class="col-sm-3">
+
+    </div>
+
+</div>

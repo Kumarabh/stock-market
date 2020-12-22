@@ -1,0 +1,252 @@
+/* You can add global styles to this file, and also import other style files */
+.nav-tabs .nav-item.show .nav-link, .nav-tabs  {
+    color: #007bff;
+    /* background-color: #fff; */
+    border-color: #dee2e6 #dee2e6 #fff;
+    font-family: monospace;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: 1.25rem;
+}
+.nav-link.active{
+    font-size: 15px;
+    color: rgb(34, 34, 202);
+    background-color: silver;
+    box-shadow: 3px 3px 6px 1px rgb(163, 157, 185);
+    color: rgb(71, 47, 136);
+
+    /* -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 4px #000000; */
+    border-radius: 7px;
+
+}
+
+#formGroupExampleInput3{
+    border-radius: 30px;
+    border-color: cornflowerblue;
+    max-width: 100px ;
+}
+#formGroupExampleInput3:hover{
+    background: cornflowerblue;
+    color: white;
+    box-shadow:  0 .125rem .5rem #3f51b5;
+    transition: .5s;
+}
+
+.shadow {
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
+    box-shadow:         3px 3px 5px 6px rgb(163, 157, 185);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  }
+#headerDiv{
+    height: 34px;
+    background: #3f51b5;
+    box-shadow:  0 .125rem .5rem;
+    border-bottom: 1px solid darkgrey;
+    border-radius: 34px;
+}
+.row{
+    /* margin-right: 0px !important; */
+    
+}
+.dropdown-menu:hover{
+background: cornflowerblue;
+
+}
+.card-text{
+    border-left: 4px solid cornflowerblue;
+    font-weight: 700;
+    color: lightslategrey;
+    box-shadow: 3px 3px 5px 3px rgb(163, 157, 185);
+}
+.card-text:hover{
+    box-shadow: 3px 3px 8px;
+    /* color: hotpink; */
+    /* border-left: 4px solid hotpink; */
+    background: royalblue;
+    color: aliceblue;
+    transition: 0.5s;
+
+}
+#calculationDivs{
+    border-top: 4px solid cornflowerblue;
+
+}
+#calculationDivs:hover{
+    box-shadow: 3px 3px 5px 3px rgb(163, 157, 185);
+    border-top: 4px solid hotpink;
+    transition: 0.5s;
+
+}
+.customShadow {
+    /* box-shadow: 1px 1px 6px 1px rgb(163, 157, 185); */
+    box-shadow: 3px 5px 8px;
+    /* transition: 0.5s; */
+    border-left: 4px solid cornflowerblue;
+    border-right: 4px solid cornflowerblue;
+}
+.customShadow:hover{
+    /* transition: 0.5s; */
+    box-shadow: 3px 3px 5px;
+    border-left: 4px solid hotpink;
+    border-right: 4px solid hotpink;
+
+}
+#calculationDivs1{
+    border-top: 4px solid cornflowerblue;
+    box-shadow: 3px 5px 8px;
+}
+#calculationDivs1:hover{
+    /* box-shadow: 3px 3px 5px 3px rgb(47, 26, 124); */
+    border-top: 4px solid hotpink;
+    transition: 0.5s;
+
+}
+table{
+    border-collapse: none;
+}
+#searchBroker1,#searchBroker2,#searchBroker3,#searchBroker4 {
+    width: -webkit-fill-available;
+    border: 1px solid rgb(101, 110, 126);
+    border-radius: 11px;
+    font-family: monospace;
+    padding: 5px;
+    border: 2px solid cornflowerblue;
+}
+#search-button{
+    background: #3f51b5;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #2b3881;
+    height: 20px;
+    border-radius: 22px;
+
+}
+#search-button :hover{
+    background-color: #1e275a;
+    transition: 0.5s;
+    border-radius: 22px;
+    /* border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #2b3881;
+    height: 20px; */
+}
+#headerDiv:hover{
+    background: #39489e;
+    transition: .5s;
+    border-bottom: 1px solid darkgrey
+}
+#shortInfoDiv{
+    border-left: 4px solid cornflowerblue;
+    max-width: fit-content;
+}
+#shortInfoDiv:hover{
+    transition: 0.5s;
+    border-left: 4px solid hotpink;
+}
+#calculatorResultDiv{
+    border-top: 4px solid cornflowerblue;
+    font-family: monospace;font-weight: 700;
+     /* color: cornflowerblue; */
+     font-size: large;
+    box-shadow: 3px 5px 8px;
+
+}
+/* #calculatorResultDiv:hover{
+box-shadow: 3px 5px 8px;
+} */
+
+#alertsDiv{
+    box-shadow: 3px 5px 8px;
+}
+thead{
+    background: #08294c;
+    color: white;
+    font-family: monospace;
+}
+thead tr{
+    text-align: center;
+}
+
+tbody tr{
+    /* background: ghostwhite; */
+    text-align: center;
+    font-weight: 700;
+    margin-top: 15px;
+    font-family: monospace;
+    box-shadow:  0 .125rem .5rem;
+
+}
+tbody tr:hover{
+    /* background: ghostwhite; */
+    background: #2e3a80;
+    color: white;
+
+
+}
+.table-responsive{
+    border-radius: 10px;
+    font-family: monospace;
+}
+#s1{
+    font-size: 11px;
+    color: cadetblue;
+    font-weight: 700;
+    font-family: monospace;
+}
+
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: darkslateblue;
+    background:cornflowerblue;
+    border-color: #dee2e6 #dee2e6 #fff;
+    font-family: monospace;
+
+}
+
+/* body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    width: 5px;
+  }
+body::-webkit-scrollbar {
+    width: .5em;
+    background: grey;
+  } */
+  /* ::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+} */
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #2f3d88;
+    width: 5px;
+  }
+body::-webkit-scrollbar {
+    width: .4em;
+    background: #a6accf;
+  } 
+   ::-webkit-scrollbar {
+    width: 12px;
+}
+/*  
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+  */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px #2f3d8d;
+} 
+

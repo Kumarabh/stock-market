@@ -1,0 +1,25 @@
+[
+    {
+        "allStates": [
+            {"stateId":"1", "stateName":"Andhra Pradesh"},
+            {"stateId":"2", "stateName":"Assam"},
+            {"stateId":"3", "stateName":"Chhatis Garh"},
+            {"stateId":"4", "stateName":"Delhi"},
+            {"stateId":"5", "stateName":"Goa, Gaman, Diu"},
+            {"stateId":"6", "stateName":"Gujrat"},
+            {"stateId":"7", "stateName":"Haryana"},
+            {"stateId":"8", "stateName":"Karnataka"},
+            {"stateId":"9", "stateName":"Kerela"},
+            {"stateId":"10", "stateName":"Madhya Pradesh"},
+            {"stateId":"11", "stateName":"Maharastra"},
+            {"stateId":"12", "stateName":"Meghalaya"},
+            {"stateId":"13", "stateName":"Orrisa"},
+            {"stateId":"15", "stateName":"Rajsthan"},
+            {"stateId":"16", "stateName":"Telangana"},
+            {"stateId":"17", "stateName":"Tamil Nadu"},
+            {"stateId":"18", "stateName":"Uttar Pradesh"},
+            {"stateId":"19", "stateName":"West Bengal"},
+            {"stateId":"14", "stateName":"Other States"}
+        ]
+    }
+]

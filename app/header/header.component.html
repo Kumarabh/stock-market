@@ -1,0 +1,93 @@
+
+
+<nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light ">
+    <a class="navbar-brand" href="#" style="padding: 4px;">DIGI ERA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a id="leadsLink" class="nav-link" [routerLink]="['home']" ><i class="fa fa-home"></i> HOME</a>
+        </li>
+        <li class="nav-item active">
+          <a id="homeLink" class="nav-link" [routerLink]="['brokerage-calculator']" > <i class="fa fa-calculator"></i> BROKERAGE CAL</a>
+        </li>
+        <li class="nav-item active">
+          <a id="homeLink" class="nav-link" [routerLink]="['brokerage-calculator']" > <i class="fa fa-calculator"></i> MARKET-ARTICLE</a>
+        </li>
+        
+        
+
+      </ul>
+      <div class="dropdown">
+        <button type="button" class="dropbtn btn btn-link">FRANCHISES</button>
+        <div class="dropdown-content" style="width: 240px;">
+          <input type="text" placeholder="search a franchise" id="searchBroker1" [(ngModel)]="searchText">
+          <button class="dropdown-item " style="cursor: pointer;font-family: monospace;" 
+            *ngFor="let data of franchiseData| filter:[searchText, 'brokerName']" value="data" [disabled] = "!data.active"
+            [ngStyle]="{'color':data.active? 'cornflowerblue' : 'red' }"
+
+            (click) = "findCompany(data)"
+            >{{data.brokerName}}</button>
+      
+      
+        </div>
+      </div>
+
+
+      <div class="dropdown">
+        <button type="button" class="dropbtn btn btn-link">ADVISORIES</button>
+        <div class="dropdown-content" style="width: 240px;">
+          <input type="text" placeholder="search advisories" id="searchBroker2" [(ngModel)]="searchText">
+          <button class="dropdown-item " style="cursor: pointer;font-family: monospace;" 
+            *ngFor="let data of advisorFirmData| filter:[searchText, 'brokerName']" value="data" [disabled] = "!data.active"
+            [ngStyle]="{'color':data.active? 'cornflowerblue' : 'red' }"
+
+            (click) = "findCompany(data)"
+            >{{data.brokerName}}</button>
+      
+      
+        </div>
+      </div>
+
+    <div class="dropdown">
+      <button type="button" class="dropbtn btn btn-link">FULL SERVICE BROKERS</button>
+      <div class="dropdown-content" style="max-width: 240px;">
+        <input type="text" placeholder="search full service brokers" id="searchBroker3"  [(ngModel)]="searchText">
+        <button class="dropdown-item "style="cursor: pointer;font-family: monospace;"   *ngFor="let data of fullServiceData| filter:[searchText, 'brokerName']"
+          value="data" [disabled] = "!data.active" [ngStyle]="{'color':data.active? 'cornflowerblue' : 'red' }"
+
+          (click) = "findCompany(data)"
+          >{{data.brokerName}}</button>
+    
+    
+      </div>
+    </div>    
+    
+    <div class="dropdown">
+      <button type="button" class="dropbtn btn btn-link">DISCOUNT BROKERS</button>
+      <div class="dropdown-content" style="max-width: 200px;min-width: 200px;">
+        <input type="text" placeholder="search discount brokers" id="searchBroker4" [(ngModel)]="searchText">
+        <button class="dropdown-item" style="cursor: pointer;font-family: monospace;" 
+          *ngFor="let data of discountBrokersData| filter:[searchText, 'brokerName']" value="data" [disabled] = "!data.active"
+          
+          [ngStyle]="{'color':data.active? 'cornflowerblue' : 'red' }"
+          
+          (click) = "findCompany(data)"
+          >{{data.brokerName}}</button>
+    
+    
+      </div>
+    </div>
+
+
+
+    <i style="color: white;size: 3x;cursor: pointer;" class="fa fa-facebook mr-3 ml-3"></i>   
+
+    <i style="color: white;size: 3x;cursor: pointer;" class="fa fa-twitter"></i>   
+
+    </div>
+  </nav>
+  

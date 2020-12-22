@@ -1,0 +1,35 @@
+{
+    "allBrokers": [
+        {"brokerId":"48", "brokerName":"zerodha",
+            "info1":"This Zerodha Brokerage Calculator will help you to find out the actual brokerage charges of Zerodha.",
+            "info2":"You can calculate brokerage for all asset classes like Equity Intraday, Equity Delivery, Equity Futures, Equity Options, Currency Futures, Currency Options & Commodity.",
+            "info3":"Along with Brokerage charges, it will also give you detailed understanding of other charges like transaction charges, STT, Stamp Duty for each State, SEBI turnover charges, GST & Transaction Charges. Just provide your Buy & Sell details & you are all done.",
+            "imageUrl":"https://top10stockbroker.com/wp-content/uploads/2017/02/Zerodha-Logo.jpg"
+        },
+        {"brokerId":"49", "brokerName":"5paisa",
+            "info1":" This 5Paisa Brokerage Calculator will help you to find out the actual brokerage charges of 5Paisa.",
+            "info2":"You can calculate brokerage for all asset classes like Equity Intraday, Equity Delivery, Equity Futures, Equity Options, Currency Futures, Currency Options & Commodity.",
+            "info3":"Along with Brokerage charges, it will also give you detailed understanding of other charges like transaction charges, STT, Stamp Duty for each State, SEBI turnover charges, GST & Transaction Charges. Just provide your Buy & Sell details & you are all done.",
+            "imageUrl":"https://top10stockbroker.com/wp-content/uploads/2017/11/5paisa.jpg"
+            
+        },
+        {"brokerId":"1", "brokerName":"Angel Broking",
+            "info1":"This Angel Broking Brokerage Calculator will help you to find out the actual brokerage charges of Angel broking.",
+            "info2":"You can calculate brokerage for all asset classes like Equity Intraday, Equity Delivery, Equity Futures, Equity Options, Currency Futures, Currency Options & Commodity.",
+            "info3":"Along with Brokerage charges, it will also give you detailed understanding of other charges like transaction charges, STT, Stamp Duty for each State, SEBI turnover charges, GST & Transaction Charges. Just provide your Buy & Sell details & you are all done.",
+            "imageUrl":"https://top10stockbroker.com/wp-content/uploads/2017/02/Angel-broking-Logo.jpg"
+        },
+        {"brokerId":"54", "brokerName":"Alice Blue",
+            "info1":"This Alice Blue Brokerage Calculator will help you to find out the actual and latest brokerage charges of Alice Blue Securities Pvt. Ltd.",
+            "info2":"You can calculate brokerage for all asset classes like Equity Intraday, Equity Delivery, Equity Futures, Equity Options, Currency Futures, Currency Options & Commodity.",
+            "info3":"Along with Brokerage charges, it will also give you detailed understanding of other charges like transaction charges, STT, Stamp Duty for each State, SEBI turnover charges, GST & Transaction Charges. Just provide your Buy & Sell details & hit calculate button.",
+            "imageUrl":"https://top10stockbroker.com/wp-content/uploads/2018/12/Alice-Blue-Brokerage-Calculator.jpg"
+        },
+        {"brokerId":"50", "brokerName":"upStocks",
+            "info1":"This Upstox Brokerage Calculator will help you to find out the actual brokerage charges of RKSV Securities. ",
+            "info2":"You can calculate brokerage for all asset classes like Equity Intraday, Equity Delivery, Equity Futures, Equity Options, Currency Futures, Currency Options & Commodity.",
+            "info3":"Along with Brokerage charges, it will also give you detailed understanding of other charges like transaction charges, STT, Stamp Duty for each State, SEBI turnover charges, GST & Transaction Charges. Just provide your Buy & Sell details & you are all done.",
+            "imageUrl":"https://top10stockbroker.com/wp-content/uploads/2017/11/Upstox.jpg"
+        }
+    ]
+    }

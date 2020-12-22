@@ -1,0 +1,936 @@
+<div class="container-fluid rounded mt-2" id="home-div-1">
+
+
+    <div class="row">
+
+         <div class="col-sm  rounded " >
+    
+               <div class="card " style="border: none;width: 100%;">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <!-- <h5 class="card-title pl-2 pt-2">TOP STOCK BROKERS</h5> -->
+              <div class="card-body pt-0" >
+                  <div class="row " style="margin-bottom: -320px;border-right: 4px solid cornflowerblue;border-left: 4px solid cornflowerblue;" >
+                      <div class="col-sm pr-0 pl-0"  id="homeTopDiv">
+                        <!-- <img src="../../assets//stockHomeImage.jpg" alt="" style="max-height: 300px;width: fit-content;"> -->
+                        <!-- <h1 style="color:aliceblue;">Stock broking is fun. There is a lot to learn and invest in.</h1> -->
+                      </div>
+
+                  </div>
+                <div class="row">
+                    <div class="col-sm-4  " id="calculatorThreeDivs" >
+                        <!-- calculator start -->
+                        <div id="calculationDivs1"style="border-radius: 20px;" class=" p-3  bg-white rounded shadow">
+                            <form [formGroup]="EquityDeliveryForm" (ngSubmit)="onSubmitEquityDeliveryForm()"
+                                style="font-family: monospace; color: rgb(6, 12, 24);">
+                                <div class="row">
+    
+                                    <div class="col-sm-6">
+    
+                                        <div class="form-group">
+                                            <label for="buyPrice">Buy Price</label>
+                                            <input type="number" min="0" max="1000000" formControlName="buyPrice"
+                                                class="form-control" id="buyPrice" style="border-radius: 15px;">
+                                            <div *ngIf="submitted && f.buyPrice.errors" style="color: red;">
+                                                <div *ngIf="f.buyPrice.errors.required">Buy Price is required</div>
+                                                <div *ngIf="!(f.buyPrice.errors.actual)">Buy Price can't be negative</div>
+
+                                            </div>
+                                        </div>
+                                       
+    
+                                    </div>
+    
+                                    <div class="col-sm-6">
+    
+                                        <div class="form-group">
+                                            <label for="sellPrice">Sell Price</label>
+                                            <input type="number" min="0" max="1000000" formControlName="sellPrice"
+                                                class="form-control" id="sellPrice" style="border-radius: 15px;">
+                                            <div *ngIf="submitted && f.sellPrice.errors" style="color: red;">
+                                                <div *ngIf="f.sellPrice.errors.required">Sell Price is required</div>
+                                                <div *ngIf="!(f.sellPrice.errors.actual)">Sell Price can't be negative</div>
+
+                                            </div>
+                                        </div>
+    
+    
+                                    </div>
+    
+                                </div>
+    
+                                <div class="row">
+    
+                                    <div class="col-sm-6">
+                                        <div class="form-group" [hidden]="showLots">
+                                            <label for="numberOfShares">Number of Shares</label>
+                                            <input type="number" min="0" max="1000000" formControlName="numberOfShares"
+                                                class="form-control" id="numberOfShares" style="border-radius: 15px;">
+                                            <div *ngIf="submitted && f.numberOfShares.errors" style="color: red;">
+                                                <div *ngIf="f.numberOfShares.errors.required">Number of Shares is
+                                                    required</div>
+                                                    <div *ngIf="!(f.numberOfShares.errors.actual)">Number of Shares can't be negative</div>
+
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                    <div class="col-sm-6">
+    
+                                        <div class="form-group">
+                                            <label for="state">State</label>
+                                            <select formControlName="state" id="formGroupExampleInput3" class="form-control"
+                                                style="max-width: 270px;">
+                                                <option [ngValue]="null" disabled>Choose State</option>
+                                                <option *ngFor="let prf of allStates" [ngValue]="prf">
+                                                    {{ prf.stateName }}
+                                                </option>
+                                            </select>
+    
+                                        </div>
+    
+                                    </div>
+    
+                                </div>
+    
+    
+                                <!-- <div class="form-group">
+                <button type="submit" [disabled]="!EquityDeliveryForm.valid"  class="form-control"  >Login</button>
+            </div> -->
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="broker">choose Broker</label>
+    
+                                            <div class="dropdown">
+                                                <button type="button" class="btn btn-default dropdown-toggle"
+                                                    style="min-width: 100%;overflow: hidden;color: cornflowerblue;background:cornflowerblue;border-radius:  25px;  background: white;border: 1px solid cornflowerblue;"
+                                                    data-toggle="dropdown">
+                                                    {{selectedBrokerProp}}
+                                                </button>
+                                                <div class="dropdown-menu" style="max-height: 500px;overflow-y: scroll;">
+                                                    <input type="text"
+                                                        style="border-radius: 20px;border: 1px solid cornflowerblue;height: 34px;width: 100%;"
+                                                        placeholder="broker name ..." id="searchBroker"
+                                                        formControlName="searchText" [(ngModel)]="searchText">
+    
+                                                    <span id="dropdownItem" class="dropdown-item"
+                                                        *ngFor="let prf of allBrokers | filter:[searchText, 'brokerName']"
+                                                        value="prf"
+                                                        (click)="selectedBroker(prf)"><span>{{prf.brokerName}}</span></span>
+                                                    <!-- <a class="dropdown-item" href="#">Link 2</a>
+                            <a class="dropdown-item" href="#">Link 3</a> -->
+    
+                                                </div>
+    
+                                            </div>
+    
+                                        </div>
+    
+                                    </div>
+    
+                                </div>
+                                <div class="row">
+    
+                                    <div class="col-sm-6">
+                                        <div class="form-group" [hidden]=!showLots>
+                                            <label for="numberOfLots">Number of Lots</label>
+                                            <input type="number" min="0" max="1000000" formControlName="numberOfLots"
+                                                class="form-control" id="numberOfLots" style="border-radius: 15px;">
+                                            <div *ngIf="submitted && f.numberOfLots.errors" style="color: red;">
+                                                <div *ngIf="f.numberOfLots.errors.required">Number of Lots is required
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group" [hidden]="!showLots">
+                                            <label for="lotSize">Lots Size</label>
+                                            <input type="number" min="0" max="1000000" formControlName="lotSize"
+                                                class="form-control" id="lotSize" style="border-radius: 15px;">
+                                            <div *ngIf="submitted && f.lotSize.errors" style="color: red;">
+                                                <div *ngIf="f.lotSize.errors.required">Number of Lots is required</div>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+    
+                                </div>
+    
+    
+                                <!-- <div class="form-group">
+              <label for="broker">choose Broker</label>
+              <select formControlName="broker" id="formGroupExampleInput3" class="form-control" style="max-width: 180px;">
+                <option [ngValue]="null" disabled>Choose Broker</option>
+                <option *ngFor="let prf of allBrokers" [ngValue]="prf">
+                 {{ prf.brokerName }}
+                </option>
+              </select> 
+    
+            </div> -->
+    
+    
+                                <div class="form-group">
+                                    <button class="btn btn-primary" id="formGroupExampleInput3">Calculate</button>
+                                    
+                                </div>
+   
+                            </form>
+                        </div>
+                        <!-- calculator end -->
+    
+    
+                    </div>
+                    <div class="col-sm-4" id="calculatorThreeDivs">
+                        <!-- calculator result start -->
+    
+                        <div id="calculationDivs" id="calculatorResultDiv" class="  bg-white rounded" style="min-height:358px;line-height: normal ;">
+                            <div class="card-body">
+                                <h5 class="card-title text-center" style="font-family: monospace; color: cornflowerblue;">
+                                    Brokerage Calculator
+                                    ({{calculatedBrokerageObject.currency}})</h5>
+                                <div class="row text-center">
+                                    <div class="col-sm-6"><small class="text-muted">Total turnover</small></div>
+                                    <div class="col-sm-6"><small
+                                            class="text-muted">{{calculatedBrokerageObject.totalTurnover}}</small></div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-sm-6"><small class="text-muted">Brokerage</small></div>
+                                    <div class="col-sm-6"><small
+                                            class="text-muted">{{calculatedBrokerageObject.brokerage}}</small></div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-sm-6"><small class="text-muted">STT</small></div>
+                                    <div class="col-sm-6"><small
+                                            class="text-muted">{{calculatedBrokerageObject.stt}}</small></div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-sm-6"><small class="text-muted">SEBI Turnover Fees</small></div>
+                                    <div class="col-sm-6"><small
+                                            class="text-muted">{{calculatedBrokerageObject.fees}}</small></div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-sm-6"><small class="text-muted">Stamp Duty</small></div>
+                                    <div class="col-sm-6"><small
+                                            class="text-muted">{{calculatedBrokerageObject.stampDuty}}</small></div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-sm-6"><small class="text-muted">Transaction Charges</small></div>
+                                    <div class="col-sm-6"><small
+                                            class="text-muted">{{calculatedBrokerageObject.transactionCharges}}</small>
+                                    </div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-sm-6"><small class="text-muted">GST</small></div>
+                                    <div class="col-sm-6"><small
+                                            class="text-muted">{{calculatedBrokerageObject.gst}}</small></div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-sm-6"><small class="text-muted">Total Brokerage & Tax</small></div>
+                                    <div class="col-sm-6"><small
+                                            class="text-muted">{{calculatedBrokerageObject.totalBrokerageAndTax}}</small>
+                                    </div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-sm-6"><small class="text-muted">Total Profit/Loss</small></div>
+                                    <div class="col-sm-6"><small
+                                            class="text-muted">{{calculatedBrokerageObject.totalProfitOrLoss}}</small>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+    
+                        <!-- .calculator result end -->
+                    </div>
+                    <div class="col-sm-4" style="overflow-y: scroll;margin-top: 150px;">
+                        <!-- <div class="col-sm-3"> -->
+                            <div class="card" style="width: 100%; max-height: 358px;" id="alertsDiv">
+                               <div class="card-body pr-0 pl-0">
+                                   <h5 class="card-title text-center">
+                                       <input type="text" class="form-control w-17" (keyup) = "companyOfferFilter($event.target.value)"
+                                       
+                                       style="font-family: monospace;color: cornflowerblue;border-radius: 1.25em;border: 1px solid cornflowerblue;" [(ngModel)] = "searchTextOffers"  placeholder = "search offers by companies">
+                                   </h5>
+                                   <!-- <p class="card-text rounded">
+                                       <a href="types_of_stock_brokers" aria-flowto="#types_of_stock_brokers">Types of Stock Brokers</a>
+                                   </p> -->
+                                   <!-- card 1 -->
+                                   <div class="card w-100 rounded" *ngFor = "let company of companyOffersFilter">
+                                    <div class="card-body rounded" style="box-shadow: 3px 5px 8px;">
+                                      <h5 class="card-title">{{company[0]}}</h5>
+                                      <p class="card-text">{{company[1].offer}}</p>
+                                      <!-- <a href="#" class="btn btn-primary">Button</a> -->
+                                      <ul class="list-group list-group-flush rounded">
+                                        <li class="list-group-item" style="font-family: monospace;">visit this offer</li>
+                                    </ul>
+                                    </div>
+                                  </div>
+                                   <!-- card 2 start-->
+                                   <!-- <div class="card w-100">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Zerodha</h5>
+                                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                      <ul class="list-group list-group-flush rounded">
+                                        <li class="list-group-item">visit this offer</li>
+                                    </ul>
+                                    </div>
+                                  </div> -->
+                                   <!-- card 2 end -->
+
+                               </div>
+                               <!-- <ul class="list-group list-group-flush rounded">
+                                   <li class="list-group-item">Cras justo odio</li>
+                               </ul> -->
+                   
+                            </div>
+                   
+                        <!-- </div> -->
+    
+                    </div>
+    
+                </div>
+                
+              </div>
+         </div>
+             
+        </div>
+        
+    
+    </div>
+    <!-- </div> -->
+  
+        <div class="row">
+            
+
+        <div class="col-sm-12 rounded " id="middleDiv">
+
+            <div class="card mb-2 customShadow" style="width: 100%;">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <h5 class="card-title pl-2 pt-2">TOP STOCK BROKERS</h5>
+                <div class="card-body">
+                    <p class="card-text rounded">
+                        A stock broker plays an essential role in the buying and selling of securities in India. Since stockbrokers play an important role, it is crucial to choose the most suitable stockbroker for yourself.
+                        They help you in opening a Demat and Trading Account for your trading and investment needs. A Demat Account is the one that holds your securities in a dematerialized format. 
+                        It is like bank accounts expect the fact that it holds securities and not cash. A Trading Account, on the other hand, is required for carrying out buying and selling of securities in the stock market
+                        Before discussing about the top stockbroker in India, let us begin with understanding who a stockbroker is?
+
+                    </p>
+                    <!-- <p class="card-text rounded"> -->
+                        
+                    <!-- </p> -->
+                    <!-- <p class="card-text rounded"> -->
+                    <!-- </p> -->
+                    <!-- <p class="card-text rounded">
+                    </p> -->
+                </div>
+                <ul class="list-group rounded list-group-flush">
+                    <li class="list-group-item">Next: <a href="#who_is_a_stock_broker">Who stock broker is?</a></li>
+               </ul>
+                <!-- <div class="card-body"> <a href="#" class="card-link">Card link</a><a href="#" class="card-link">Another link</a></div> -->
+            </div>
+
+
+
+            <div class="card mb-2 customShadow" style="width: 100%;" id="who_is_a_stock_broker">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <h5 class="card-title pl-2 pt-2">Who is a stockbroker?</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="card-text rounded">
+                                A stockbroker is either an individual or an organization that possesses the licenses to participate in the securities market on behalf of its clients. 
+                                He mainly plays the role of an agent and acts as a link between Demat Account holders and depositories. Since a stockbroker acts as an agent for buying and selling of securities, he charges a commission amount known as a brokerage for rendering his services.     
+                                He performs a variety of services for his investors. Every time he buys and sells securities on behalf of his clients, he makes sure that the best price is obtained for the investor i.e., for his client.
+                    
+                            </p>
+                        </div>
+                        <div class="col-sm-6 rounded" >
+                            <div class="card"  style="width: 18rem;">
+                                <img class="mx-auto my-auto " style="width: 100%;" src = "../../assets//hdfc-group.webp">
+                                <div class="card-body" >
+                                    <p class="card-text mx-auto"><a class="text-center"> Let's check this out </a></p>
+                                  </div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                    <!-- <p class="card-text rounded">
+                    </p>
+                     -->
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Next: <a href="#types_of_stock_brokers">Types of Stock Brokers:</a></li>
+               </ul>
+                <!-- <div class="card-body"> <a href="#" class="card-link">Card link</a><a href="#" class="card-link">Another link</a></div> -->
+            </div>
+
+
+            <div class="card mb-2 customShadow" id="typesOfStockBrokers" style="width: 100%;" >
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <h5 class="card-title pl-2 pt-2">Types of stock brokers?</h5>
+                    <div class="card-body">
+                        <!-- <p class="card-text rounded">
+                            He performs a variety of services for his investors. Every time he buys and sells securities on behalf of his clients, he makes sure that the best price is obtained for the investor i.e., for his client.
+                            </p> -->
+
+                            <h5 class="card-title pl-2 pt-2">Full-service Broker:</h5>
+                            <div class="card-body">
+                            <p class="card-text rounded">
+                                A full-service broker offers a large variety of services to its client rather than just offering the facility of buying and selling of shares. 
+                                These services include research and advice, tax-saving tips, retirement planning, and much more.
+                                They provide expertise to investors who are willing to put their money in the market but lack the substantial time required for the same.
+                                 In certain cases, full-service brokers also provide customized services to its clients regarding portfolio management, 
+                                financial planning, and wealth management services. It becomes extremely convenient to invest when dealing in the stock market through a full-service broker.
+                            </p>
+                        
+                    
+                            </div>
+
+                            <h5 class="card-title pl-2 pt-2">Discount Brokers:</h5>
+                            <div class="card-body">
+                            <p class="card-text rounded">
+                                A discount broker, unlike a full-service broker, provides its services at a very low rate of brokerage charges.
+                                Most of the discount brokers are technology driven brokers, and hence their operational cost is very low.
+                                They only provide a trading platform to their client for buying and selling of shares. 
+                                These are no additional services provided as the charges charged by these brokers are very low.
+                                Discount brokers are suitable for investors who are capable of investing and trading on their own and do not require expert hand-holding in the context of stock market trading and investments. 
+                                The online trading software provided by them is usually free of cost.
+
+                            </p>                    
+                            </div>                       
+
+                    </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Next: <a href="#top_stock_brokers_in_india">Top stock brokers in india</a></li>
+               </ul>
+                <!-- <div class="card-body"> <a href="#" class="card-link">Card link</a><a href="#" class="card-link">Another link</a></div> -->
+            </div>
+
+            <div class="card mb-2 customShadow" style="width: 100%;" id="who_is_a_stock_broker">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <h5 class="card-title pl-2 pt-2">Top stockbrokers in India</h5>
+                <div class="card-body">
+                    <p class="card-text rounded">
+                        When talking about the Indian stock market, there are a number of stockbrokers in the market who are willing to extend their services to their clients. 
+                        In such a scenario, it becomes difficult to choose the best stockbroker for oneself.
+                    </p>
+                    <!-- <div class="card-text rounded"> -->
+                    <p><span><i class="fa fa-arrow-right"></i></span>
+                            Check the background of your stockbroker. Before choosing and trusting a stockbroker for you, make it a point to run a strict check for their background. 
+                            Look for client reviews, their past performance, their experience in the industry, and any other relevant information before trusting them.
+                    </p>                   
+                    
+                <p><span><i class="fa fa-arrow-right"></i></span>
+                    Check the minimum amount of balance you are required to keep with the brokerage firm you are scrutinizing. The amount of minimum balance varies from broker to broker.
+                </p>
+                <p><span><i class="fa fa-arrow-right"></i></span>
+                    Look for the brokerage charged by different stockbrokers for their services. Compare the brokerage charges charged by different brokers and then choose wisely. A low brokerage will help you save more amount of money.
+                </p>
+                <p><span><i class="fa fa-arrow-right"></i></span>
+                    Look for the additional services offered by your broker. Check if they are providing any other service apart from buying and selling of shares.                
+                </p>
+                <p><span><i class="fa fa-arrow-right"></i></span>
+                    Check for the customer support services offered by your broker. A good customer support plays an important role when choosing a stockbroker.                
+                </p>
+                <p ><span><i class="fa fa-arrow-right"></i></span>
+                    When talking about top stockbrokers in India, we are here with a list of top 5 full-service and top 5 discount brokers in India for you.                
+                </p>
+            <!-- </div> -->
+
+                    </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Next: <a href="#types_of_stock_brokers">Top Full-service brokers in India</a></li>
+               </ul>
+                <!-- <div class="card-body"> <a href="#" class="card-link">Card link</a><a href="#" class="card-link">Another link</a></div> -->
+            </div>
+
+
+            <!-- end of section -->
+            <div class="card mb-2 customShadow" style="width: 100%;" id="who_is_a_stock_broker">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <h5 class="card-title pl-2 pt-2">Top Full-service brokers in India</h5>
+                <div class="card-body">
+                    <p class="card-text rounded">
+                        <b style="font-weight: 600;">Kotak Securities:</b> Kotak securities, a subsidiary of Kotak Mahindra Bank, was established in the year 1994. It offers a bouquet of financial services along with brokerage services.
+                    </p>
+                    <!-- <div class="card-text rounded"> -->
+                    <!-- <p><span><i class="fa fa-arrow-right"></i></span> -->
+                        <h5>Unique Selling Propositions:</h5>
+                    <!-- </p>                    -->
+                    
+                <div class="row">
+
+                    <div class="col-sm-6">
+
+                        <p><span><i class="fa fa-arrow-right"></i></span>
+                            Opening a Demat Account with Kotak Securities is free, however, the AMC charged is Rs.600 per annum.
+                        </p>
+                        <p><span><i class="fa fa-arrow-right"></i></span>
+                            Kotak Securities charges Rs.750 for opening a trading account, whereas the AMC for the same if Nil.                </p>
+                        <p><span><i class="fa fa-arrow-right"></i></span>
+                            The brokerage charged is between 0.30% to 0.59%, depending on the plan you choose.                
+                        </p>
+                        <p><span><i class="fa fa-arrow-right"></i></span>
+                            It offers free trading in the Equity Intraday Segment.                
+                        </p>
+                        <p ><span><i class="fa fa-arrow-right"></i></span>
+                            It offers a 3-in-1 Demat Account, which includes a Demat Account, a Trading Account, and a Bank Account.                
+                        </p>
+
+                    </div>
+                    <div class="col-sm-6 rounded" >
+                        <div class="card" style="width: 18rem; ">
+                            <img class="mx-auto my-auto " style="width: 100%;" src = "../../assets//kotak-securities.jpg">
+                            <div class="card-body">
+                                <p class="card-text mx-auto"><a class="text-center"> Let's check this out </a></p>
+                              </div>
+                        </div>
+
+                      
+                    </div>
+
+                </div>
+            <!-- </div> -->
+
+                    </div>
+
+<!-- end of section -->
+<div class="card-body">
+    <p class="card-text rounded">
+        <b style="font-weight: 600;">ICICI Direct:</b> 
+        ICICI Direct is the largest retail stockbroker in India that offers a variety of services to its customers. It offers a wide range of financial services to retail and institutional investors.
+    </p>
+    <!-- <div class="card-text rounded"> -->
+    <!-- <p><span><i class="fa fa-arrow-right"></i></span> -->
+        <h5>Unique Selling Propositions:</h5>
+    <!-- </p>                    -->
+    <div class="row">
+        <div class="col-sm-6">
+            <p><span><i class="fa fa-arrow-right"></i></span>
+                It offers three different brokerage plans for its customers.
+            </p>
+            <p><span><i class="fa fa-arrow-right"></i></span>
+                Kotak Securities charges Rs.750 for opening a trading account, whereas the AMC for the same if Nil.                
+            </p>
+            <p><span><i class="fa fa-arrow-right"></i></span>
+                The Demat Account opening charges are nil, whereas the Demat AMC charged is Rs.700/- per annum.</p>
+            <p><span><i class="fa fa-arrow-right"></i></span>
+                Opening a trading account with ICICI direct costs Rs.975/- with free AMC.
+            </p>
+            <p ><span><i class="fa fa-arrow-right"></i></span>
+                The minimum brokerage charged by ICICI is Rs.35/- per executed order or 2.5% of the trade value, whichever is less.
+            </p>
+            <p ><span><i class="fa fa-arrow-right"></i></span>
+                For stocks priced Rs.10 or below, the brokerage charged is 5 paisa or 0.05%.
+            </p>
+        </div>
+        <div class="col-sm-6 rounded" >
+            <div class="card" style="width: 18rem; border-left:4 px solid lightgreen">
+                <img class="mx-auto my-auto " style="width: 100%;" src = "../../assets//ICICI-Direct-Brokerage-Plans.jpg">
+                <div class="card-body">
+                    <p class="card-text mx-auto"><a class="text-center"> Let's check this out </a></p>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+<!-- </div> -->
+
+    </div>
+
+    <!-- end of section -->
+    <div class="card-body">
+        <p class="card-text rounded">
+            <b style="font-weight: 600;">Edelweiss:</b> 
+            It is a Mumbai based full-service broker that was incorporated in the year 2008 and is a part of the Edelweiss Group that was incorporated in the year 1995.        </p>
+        <!-- <div class="card-text rounded"> -->
+        <!-- <p><span><i class="fa fa-arrow-right"></i></span> -->
+            <h5>Unique Selling Propositions:</h5>
+        <!-- </p>                    -->
+        
+        <div class="row" >
+            <div class="col-sm-6">
+                <p><span><i class="fa fa-arrow-right"></i></span>
+                    It offers 3 types of brokerage plans, including the Standard Plan, the Advanced Subscription Plan, and the Discount Brokerage Online Trading Plan.    </p>
+                <p><span><i class="fa fa-arrow-right"></i></span>
+                    The brokerage charged under the Discount Brokerage online trading plan in 0.01% for equity and intraday and Rs.5 per lot for F&O contracts.    </p>
+                <p><span><i class="fa fa-arrow-right"></i></span>
+                    Its Mobile Trader App is rated as the best trading App in India.    
+                </p>
+                <p><span><i class="fa fa-arrow-right"></i></span>
+                    Demat Account opening with Edelweiss is free with an AMC charge of Rs.300 for the first year.    
+                </p>
+                <p ><span><i class="fa fa-arrow-right"></i></span>
+                    It is free to open a Trading Account with Edelweiss with an AMC charge of Rs.250.
+                </p>
+            </div>
+            <div class="col-sm-6 rounded" >
+                <div class="card" style="width: 18rem; border-left:4 px solid lightgreen">
+                    <img class="mx-auto my-auto " style="width: 100%;" src = "../../assets//edelweiss.jpg">
+                    <div class="card-body">
+                        <p class="card-text mx-auto"><a class="text-center"> Let's check this out </a></p>
+                      </div>
+                </div>
+            </div>
+        </div>
+    
+    <!-- </div> -->
+    
+        </div>
+
+    <!-- end of section -->
+                    
+    <!-- end of section -->
+    <div class="card-body">
+        <p class="card-text rounded">
+            <b style="font-weight: 600;">Angel Broking:</b> 
+            Angel Broking is one of the largest full-service brokers in India that was incorporated in the year 1987. It offers trading and investment in stocks, commodities, margin funding, advisory services, and many other financial instruments.        <!-- <div class="card-text rounded"> -->
+        <!-- <p><span><i class="fa fa-arrow-right"></i></span> -->
+            <h5>Unique Selling Propositions:</h5>
+        <!-- </p>                    -->
+        
+        <div class="row">
+            <div class="col-sm-6">
+                <p><span><i class="fa fa-arrow-right"></i></span>
+                    It offers one single trading plan named Angel iTrade that offers full-service brokerage services at the lowest brokerage charges across the industry.
+                    <p><span><i class="fa fa-arrow-right"></i></span>
+                        There is no minimum margin required for this plan.
+                    <p><span><i class="fa fa-arrow-right"></i></span>
+                        The brokerage charged is Rs.20 per executed trade.
+                    </p>
+                <p><span><i class="fa fa-arrow-right"></i></span>
+                    The call n trade services at Angel Broking are charged at Rs.20 per trade.    
+                </p>
+                <p ><span><i class="fa fa-arrow-right"></i></span>
+                    Angel broking offers a mobile trading app, trading website, and an online trading terminal.    
+                </p>
+            </div>
+            <div class="col-sm-6 rounded" >
+                <div class="card" style="width: 18rem; border-left:4 px solid lightgreen">
+                    <img class="mx-auto my-auto " style="width: 100%;" src = "../../assets//angelBroking.jpg">
+                    <div class="card-body">
+                        <p class="card-text mx-auto"><a class="text-center"> Let's check this out </a></p>
+                      </div>
+                </div>
+            </div>
+        </div>
+    
+    <!-- </div> -->
+    
+        </div>
+
+    <!-- end of section -->
+
+    <div class="card-body">
+        <p class="card-text rounded">
+            <b style="font-weight: 600;">HDFC Securities:</b> 
+            HDFC Securities is the stockbroking arm of the HDFC bank that provides both online trading and mobile trading. The trading account offered by HDFC Securities is a 3-in-1 account that offers a Trading Account, a Demat Account, and a Bank Account.
+            <!-- <p><span><i class="fa fa-arrow-right"></i></span> -->
+            <h5>Unique Selling Propositions:</h5>
+        <!-- </p>                    -->
+        
+        <div class="row">
+            <div class="col-sm-6">
+                <p><span><i class="fa fa-arrow-right"></i></span>
+                    HDFC Securities charges Rs.999/- for Account Opening.
+                    <p><span><i class="fa fa-arrow-right"></i></span>
+                        It offers electronic order placement that saves time and makes trade instantaneous.
+                    <p><span><i class="fa fa-arrow-right"></i></span>
+                        Users get a separate contact number for trading over the phone as well as for customer care services.
+                    </p>
+                <p><span><i class="fa fa-arrow-right"></i></span>
+                    The brokerage charged by HDFC Securities is 0.50% or Rs.25 per executed trade.   
+                </p>
+                <p ><span><i class="fa fa-arrow-right"></i></span>
+                    All the accounts, that is, bank account, Demat account, and trading account, are integrated, that saves time and money.   
+                </p>
+            </div>
+            <div class="col-sm-6 rounded" >
+                <div class="card" style="width: 18rem; border-left:4 px solid lightgreen">
+                    <img class="mx-auto my-auto " style="width: 100%;" src = "../../assets//hdfc.png">
+                    <div class="card-body">
+                        <p class="card-text mx-auto"><a class="text-center"> Let's check this out </a></p>
+                      </div>
+                </div>
+            </div>
+        </div>
+    
+    <!-- </div> -->
+    
+        </div>
+
+    <!-- end of section for full service-->
+    <!-- start of section for discount brokers -->
+
+         <!-- end of section -->
+         <div class="card mb-2 " style="width: 100%;" id="who_is_a_stock_broker">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <h5 class="card-title pl-2 pt-2">Top Discount Brokers in India</h5>
+            <div class="card-body">
+                <p class="card-text rounded">
+                    <b style="font-weight: 600;">Zerodha:</b>
+                    Zerodha is India’s top discount broker at present that offers a flat fee discount brokerage model. It allows its clients to invest in Equity, IPO, Commodity, and Mutual Funds.
+                </p>
+                <!-- <div class="card-text rounded"> -->
+                <!-- <p><span><i class="fa fa-arrow-right"></i></span> -->
+                    <h5>Unique Selling Propositions:</h5>
+                <!-- </p>                    -->
+                
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p><span><i class="fa fa-arrow-right"></i></span>
+                            The Demat account opening charges at Zerodha are Rs.200/-.            
+                        </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                The Trading Account AMC charged at Zerodha is NIL.
+                            </p>
+                        <p><span><i class="fa fa-arrow-right"></i></span>
+                            The Demat Account AMC charged at Zerodha is Rs.300/- per annum.           
+                         </p>
+                        <p ><span><i class="fa fa-arrow-right"></i></span>
+                            The brokerage charged by Zerodha is 0.03% or Rs.20/- per executed order, whichever is low.           
+                         </p>
+                         <p ><span><i class="fa fa-arrow-right"></i></span>
+                            The call n trade facility in Zerodha is available at the cost of Rs.50/- per call.            
+                        </p>
+                    </div>
+                    <div class="col-sm-6 rounded" >
+                        <div class="card" style="width: 18rem; border-left:4 px solid lightgreen">
+                            <img class="mx-auto my-auto " style="width: 100%;" src = "../../assets//Zerodha.jpg">
+                            <div class="card-body">
+                                <p class="card-text mx-auto"><a class="text-center"> Let's check this out </a></p>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+        <!-- </div> -->
+
+                </div>
+
+                <!-- end of section -->
+                <div class="card-body">
+                    <p class="card-text rounded">
+                        <b style="font-weight: 600;">Upstox:</b>
+                        Upstox is a low cost broking firm in India that provides trading opportunities to its clients at low prices. It
+                        offers to trade in equity, commodity, currency, futures, and options.
+                
+                    </p>
+                    <!-- <div class="card-text rounded"> -->
+                    <!-- <p><span><i class="fa fa-arrow-right"></i></span> -->
+                    <h5>Unique Selling Propositions:</h5>
+                    <!-- </p>                    -->
+                
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                Upstox offers two different brokerage plans: Upstox Basic Plan and Upstox Priority Pack.
+                            </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                The brokerage charged under the Upstox Basic Plan is Rs.20/- per executed trade.
+                            </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                The brokerage charged under the Upstox Priority Pack is Rs.30/- per executed trade.
+                            </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                The difference in both the plans is in the margin facility where the Basic Plan offers 20x leverage on the cash
+                                segment, and the Priority Pack offers 25x leverage on the cash segment.
+                            </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                Account Opening with Upstox is free, whereas the AMC charged is Rs.300/- per year.
+                            </p>
+                        </div>
+                        <div class="col-sm-6 rounded" >
+                            <div class="card" style="width: 18rem; border-left:4 px solid lightgreen">
+                                <img class="mx-auto my-auto " style="width: 100%;" src = "../../assets//upstox.jpg">
+                                <div class="card-body">
+                                    <p class="card-text mx-auto"><a class="text-center"> Let's check this out </a></p>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                
+                </div>
+                <!-- end of section -->
+
+                <!-- end of section -->
+                <div class="card-body">
+                    <p class="card-text rounded">
+                        <b style="font-weight: 600;">5Paisa:</b>
+                        5Paisa is another leading discount stockbroker in India that is professionally managed by the famous IIFL group. The firm was incorporated in the year 2016 and became the second largest discount broker in the year 2018.
+                    </p>
+                    <!-- <div class="card-text rounded"> -->
+                    <!-- <p><span><i class="fa fa-arrow-right"></i></span> -->
+                    <h5>Unique Selling Propositions:</h5>
+                    <!-- </p>                    -->
+                
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                It charges a flat brokerage of Rs.10/- per executed trade for online mutual funds transactions.
+                            </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                It offers its clients two types of accounts, namely the 5Paisa Trading Account and the Mutual Fund Account.
+                            </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                It offers two different plans, which include the Platinum Plan and the Titanium Plan.
+                                </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                The fee charged under the Platinum Plan is Rs.499/- per month, and under Titanium Plan is Rs.999/- per month.
+                            </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                Opening Demat Account with 5Paisa is free with an AMC charge of Rs.45/- per trade. Trading Account can be opened for Rs.650/- with zero AMC.
+                            </p>
+                        </div>
+                        <div class="col-sm-6 rounded" >
+                            <div class="card" style="width: 18rem; border-left:4 px solid lightgreen">
+                                <img class="mx-auto my-auto " style="width: 100%;" src = "../../assets//5paisa.jpg">
+                                <div class="card-body">
+                                    <p class="card-text mx-auto"><a class="text-center"> Let's check this out </a></p>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                
+                </div>
+                <!-- end of section -->
+
+                 <!-- end of section -->
+                 <div class="card-body">
+                    <p class="card-text rounded">
+                        <b style="font-weight: 600;">SAMCO:</b>
+                        SAMCO was incorporated in the year 2015 and soon became among the low-cost brokers in India. The company is popular for its low brokerage, margin facility, and high exposure and free of cost trading software.
+                    </p>
+                    <!-- <div class="card-text rounded"> -->
+                    <!-- <p><span><i class="fa fa-arrow-right"></i></span> -->
+                    <h5>Unique Selling Propositions:</h5>
+                    <!-- </p>                    -->
+                
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                SAMCO charges flat Rs.20/- brokerage for every executed order.
+                            </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                The leverage offered for equity intraday is 15x, for Cover and Brackets orders is 33x.
+                            </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                The margin products offered by SAMCO include CashPlus, StockPlus, and InstaPlus.
+                            </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                Opening a Demat and Trading Account at SAMCO is free. The AMC charged for Demat Account is Rs.400/- per year, and for Trading Account is nil.Opening a Demat and Trading Account at SAMCO is free. The AMC charged for Demat Account is Rs.400/- per year, and for Trading Account is nil.
+                            </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                The account holders are required to pay an additional Rs.20/- charge for availing call n trade facility. 
+                            </p>
+                        </div>
+                        <div class="col-sm-6 rounded" >
+                            <div class="card" style="width: 18rem; border-left:4 px solid lightgreen">
+                                <img class="mx-auto my-auto " style="width: 100%;" src = "../../assets//samco.png">
+                                <div class="card-body">
+                                    <p class="card-text mx-auto"><a class="text-center"> Let's check this out </a></p>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                
+                </div>
+                <!-- end of section -->
+
+                <!-- end of section -->
+                <div class="card-body">
+                    <p class="card-text rounded">
+                        <b style="font-weight: 600;">Wisdom Capital:</b>
+                        Wisdom Capital was incorporated in the year 2013. It is an online discount brokerage firm that offers brokerage services for trading in futures, stocks, commodities, currency, and options.
+                    </p>
+                    <!-- <div class="card-text rounded"> -->
+                    <!-- <p><span><i class="fa fa-arrow-right"></i></span> -->
+                    <h5>Unique Selling Propositions:</h5>
+                    <!-- </p>                    -->
+                
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                It offers advanced tools like charting, live data analysis, etc free of cost to its clients.
+                            </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                The users at Wisdom Capital get three different types of accounts, including Freedom Plan, Pro Plan, and Ultimate Plan.
+                            </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                The Demat Account opening under all the three plans is free of cost.
+                            </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                The brokerage in cash charged under the Freedom Plan is zero, under the Pro Plan is 0.005% for intraday and 0.05% for delivery, and under Ultimate Plan is 0.005% for intraday and 0.05% for delivery.
+                            </p>
+                            <p><span><i class="fa fa-arrow-right"></i></span>
+                                The call n trade charges at Wisdom Capital under all the three plans is Rs.20/- per executed order.
+                            </p>
+                        </div>
+                        <div class="col-sm-6 rounded" >
+                            <div class="card rounded" style="width: 18rem; border-left:4 px solid lightgreen">
+                                <img class="mx-auto my-auto " style="width: 100%;" src = "../../assets//wisdomCapital.jpg">
+                                <div class="card-body">
+                                    <p class="card-text mx-auto"><a class="text-center"> Let's check this out </a></p>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                
+                </div>
+                <!-- end of section -->
+
+                <div class="card mb-2 " style="width: 100%;" id="who_is_a_stock_broker">
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <h5 class="card-title pl-2 pt-2">CONCLUSION?</h5>
+                    <div class="card-body">
+                        <p class="card-text rounded">
+                            By now, we very well understand the role and importance of a stockbroker when talking about securities trading. It is essential in the current times to have a stockbroker. In order to choose the right broker for yourself, you need to first understand your financial requirements. After understanding your financial needs and requirements, conduct a detailed study and comparison of different stockbrokers.
+                        </p>
+                        <p class="card-text rounded">
+                            Be sure whether you are looking for a discount broker or a full-service broker. Choose your broker wisely only when you are sure after a detailed comparison about which of the broker is most suitable for you and your needs.
+    
+                        </p>
+                        <!-- <p class="card-text rounded">
+                        </p>
+                         -->
+                    </div>
+                    <ul class="list-group list-group-flush rounded">
+                        <li class="list-group-item"> GOOD LUCK !!!</li>
+                   </ul>
+                    <!-- <div class="card-body"> <a href="#" class="card-link">Card link</a><a href="#" class="card-link">Another link</a></div> -->
+                </div>
+
+                
+                <!-- END OF CONCLUSION -->
+
+                
+                
+                
+         </div>
+
+
+                <!-- <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Next: <a href="#types_of_stock_brokers">Top Full-service brokers in India</a></li>
+               </ul> -->
+                <!-- <div class="card-body"> <a href="#" class="card-link">Card link</a><a href="#" class="card-link">Another link</a></div> -->
+            </div>
+
+            <!-- end of section -->
+
+         
+        </div>
+        
+
+
+        <!-- <div class="col-sm-2 customShadow " style="min-height:500px;" id="side31">
+           
+        </div> -->
+
+    </div>

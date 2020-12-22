@@ -1,0 +1,71 @@
+{
+    "zerodha": {
+        "offer":"Flat Rs.20 brokerage on intraday trade; Free Equity Delivery Trades; 100% brokerage refund if in 60 days you have made net profits.",
+        "offerLink":"https://top10stockbroker.com/provide-information/",
+        "logo-link":"https://top10stockbroker.com/wp-content/uploads/2017/02/Zerodha-Logo.jpg",
+        "demat_account_offer":["100% Free Demat & Trading A/C","Upto 90% Discount on Brokerage","Invest in IPO & Double your Money","4 Tickets Free on BookMyShow"],
+        "sub_broker_offer":["Get upto 80% Revenue Share","Open Client A/C in Just 5 Minute","Get Timely Payouts Monthly","Very low Deposit Amount"]
+   
+    },
+    "Angel Broking": {
+        "offer":"Rs.20 flat brokerage per order for all segments, except Equity Delivery Trading is absolutely Free.",
+        "offerLink":"https://top10stockbroker.com/provide-information/",
+        "logo-link":"https://top10stockbroker.com/wp-content/uploads/2017/02/Angel-broking-Logo.jpg",
+        "demat_account_offer":["100% Free Demat & Trading A/C","Upto 90% Discount on Brokerage","Invest in IPO & Double your Money","4 Tickets Free on BookMyShow"],
+        "sub_broker_offer":["Get upto 80% Revenue Share","Open Client A/C in Just 5 Minute","Get Timely Payouts Monthly","Very low Deposit Amount"]
+   
+        },
+    "iifl-securities":{
+        "offer":"FREE Demat & Trading Account + Instant Brokerage Credit of Rs.2,000. Top notch Advisory.",
+        "logo-link":"https://top10stockbroker.com/wp-content/uploads/2020/03/IIFL-Securities-new-logo.png",
+        "demat_account_offer":["100% Free Demat & Trading A/C","Upto 90% Discount on Brokerage","Invest in IPO & Double your Money","4 Tickets Free on BookMyShow"],
+        "sub_broker_offer":["Get upto 80% Revenue Share","Open Client A/C in Just 5 Minute","Get Timely Payouts Monthly","Very low Deposit Amount"]
+   
+    },
+    "Master Trust":{
+        "offer":"Flat Rs.10/Order + Free A/C Opening + Free AMC & Advisory + Refer & Earn: Min. Rs 1000 & more.",
+        "logo-link":"https://top10stockbroker.com/wp-content/uploads/2019/09/MasterTrust-Best-offer.jpg",
+        "demat_account_offer":["100% Free Demat & Trading A/C","Upto 90% Discount on Brokerage","Invest in IPO & Double your Money","4 Tickets Free on BookMyShow"],
+        "sub_broker_offer":["Get upto 80% Revenue Share","Open Client A/C in Just 5 Minute","Get Timely Payouts Monthly","Very low Deposit Amount"]
+   
+    },
+    "5paisa":{
+        "offer":"Save upto 95% on Brokerage. Trade at Rs.10 only. Open Instant Online Account. Get 5 free trades & save Rs.1,050 on account opening & DP AMC.",
+        "logo-link":"https://top10stockbroker.com/wp-content/uploads/2017/11/5paisa.jpg",
+        "demat_account_offer":["100% Free Demat & Trading A/C","Upto 90% Discount on Brokerage","Invest in IPO & Double your Money","4 Tickets Free on BookMyShow"],
+        "sub_broker_offer":["Get upto 80% Revenue Share","Open Client A/C in Just 5 Minute","Get Timely Payouts Monthly","Very low Deposit Amount"]
+   
+    },
+    "India Bulls Ventures":{
+        "offer": "Get flat rate Rs.15 per Trade + Zero%* Brokerage on Equity Trades; Zero Margin Money.",
+        "logo-link":"https://top10stockbroker.com/wp-content/uploads/2019/06/Indiabulls-Logo-300x73.jpg",
+        "demat_account_offer":["100% Free Demat & Trading A/C","Upto 90% Discount on Brokerage","Invest in IPO & Double your Money","4 Tickets Free on BookMyShow"],
+        "sub_broker_offer":["Get upto 80% Revenue Share","Open Client A/C in Just 5 Minute","Get Timely Payouts Monthly","Very low Deposit Amount"]
+   
+    },
+    "Shubh Trading Made Easy":{
+        "offer": "Get flat rate Rs.15 per Trade + Zero%* Brokerage on Equity Trades; Zero Margin Money.",
+        "logo-link":"https://top10stockbroker.com/wp-content/uploads/2019/06/Indiabulls-Logo-300x73.jpg",
+        "demat_account_offer":["100% Free Demat & Trading A/C","Upto 90% Discount on Brokerage","Invest in IPO & Double your Money","4 Tickets Free on BookMyShow"],
+        "sub_broker_offer":["Get upto 80% Revenue Share","Open Client A/C in Just 5 Minute","Get Timely Payouts Monthly","Very low Deposit Amount"]
+   
+    },
+    "Motilal Oswal":{
+        "offer":"Motilal Oswal: Free (Trading & Demat Account) + Free Brokerage for 1st Month (i.e. Rs 1000 waived).",
+        "logo-link":"https://top10stockbroker.com/wp-content/uploads/2017/02/Motilal-Oswal.jpg",
+        "demat_account_offer":["100% Free Demat & Trading A/C","Upto 90% Discount on Brokerage","Invest in IPO & Double your Money","4 Tickets Free on BookMyShow"],
+        "sub_broker_offer":["Get upto 80% Revenue Share","Open Client A/C in Just 5 Minute","Get Timely Payouts Monthly","Very low Deposit Amount"]
+   
+
+    },
+    "UpStox":{
+        "offer":"Upstox or RKSV: Flat Rs.20 per Intraday trade. Delivery is Free. Switch to UPSTOX from your existing broker and avail Rs.2,000 as brokerage credit.",
+        "logo-link":"https://top10stockbroker.com/wp-content/uploads/2017/11/Upstox-300x99.jpg",
+        "demat_account_offer":["100% Free Demat & Trading A/C","Upto 90% Discount on Brokerage","Invest in IPO & Double your Money","4 Tickets Free on BookMyShow"],
+        "sub_broker_offer":["Get upto 80% Revenue Share","Open Client A/C in Just 5 Minute","Get Timely Payouts Monthly","Very low Deposit Amount"]
+   
+    }
+    
+
+    
+}

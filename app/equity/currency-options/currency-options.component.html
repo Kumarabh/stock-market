@@ -1,0 +1,103 @@
+<div class="container-fluid">
+  <div class="row mt-2 " id="row1">
+      <!-- <div class="col-sm-1"></div> -->
+      <div class="col-sm-3" id="formBox" style="border-right: 1px solid gainsboro;">
+        <app-calculator [showLots] = "true" (calculatedBrokerageEvent)="calculatedBrokerageEventHander($event)" ></app-calculator>
+        <!-- <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4" style="background:cornflowerblue;">
+    
+        
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+    
+    </div> -->
+    
+      </div>
+      <!-- Brokerage Calculate -->
+      <div class="col-sm-3"  style="border-right: 1px solid gainsboro;">
+        <div id="calculationDivs"id="calculatorResultDiv" class="bg-white rounded shadow">
+    
+    
+          <div class="card-body">
+            <h5 class="card-title text-center" style="font-family: monospace; color: cornflowerblue;">Brokerage Calculator ({{calculatedBrokerageObject.currency}})</h5>
+            <div class="row text-center">
+              <div class="col-sm-6"><small class="text-muted">Total turnover</small></div>
+              <div class="col-sm-6"><small class="text-muted">{{calculatedBrokerageObject.totalTurnover}}</small></div>                
+            </div>
+            <div class="row text-center">
+              <div class="col-sm-6"><small class="text-muted">Brokerage</small></div>
+              <div class="col-sm-6"><small class="text-muted">{{calculatedBrokerageObject.brokerage}}</small></div>                
+            </div>
+            <div class="row text-center">
+              <div class="col-sm-6"><small class="text-muted">STT</small></div>
+              <div class="col-sm-6"><small class="text-muted">{{calculatedBrokerageObject.stt}}</small></div>                
+            </div>
+            <div class="row text-center">
+              <div class="col-sm-6"><small class="text-muted">SEBI Turnover Fees</small></div>
+              <div class="col-sm-6"><small class="text-muted">{{calculatedBrokerageObject.fees}}</small></div>                
+            </div>
+            <div class="row text-center">
+              <div class="col-sm-6"><small class="text-muted">Stamp Duty</small></div>
+              <div class="col-sm-6"><small class="text-muted">{{calculatedBrokerageObject.stampDuty}}</small></div>                
+            </div>
+            <div class="row text-center">
+              <div class="col-sm-6"><small class="text-muted">Transaction Charges</small></div>
+              <div class="col-sm-6"><small class="text-muted">{{calculatedBrokerageObject.transactionCharges}}</small></div>                
+            </div>
+            <div class="row text-center">
+              <div class="col-sm-6"><small class="text-muted">GST</small></div>
+              <div class="col-sm-6"><small class="text-muted">{{calculatedBrokerageObject.gst}}</small></div>                
+            </div>
+            <div class="row text-center">
+              <div class="col-sm-6"><small class="text-muted">Total Brokerage & Tax</small></div>
+              <div class="col-sm-6"><small class="text-muted">{{calculatedBrokerageObject.totalBrokerageAndTax}}</small></div>                
+            </div>
+            <div class="row text-center">
+              <div class="col-sm-6"><small class="text-muted">Total Profit/Loss</small></div>
+              <div class="col-sm-6"><small class="text-muted">{{calculatedBrokerageObject.totalProfitOrLoss}}</small></div>                
+            </div>
+    
+    
+          </div>
+    
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card mb-3 " id="shortInfoDiv">
+          <div class=" no-gutters">
+    
+            <div class="col-sm">
+    
+              <div class="card-body shadow" style="font-family: monospace;">
+                <!-- <h5 class="card-title ">{{brokerShortInfo.brokerName}}</h5> -->
+                <div class="col-sm-4">
+                  <div class="container-fluid mb-3">
+                    <img class="my-auto"
+                      src="{{brokerShortInfo.imageUrl}}"
+                      width="100%" alt="" srcset="">
+          
+                  </div>
+                </div>
+                <p class="card-text p-3" >{{brokerShortInfo.info1}}</p>
+                <p class="card-text p-3">{{brokerShortInfo.info2}}</p>
+                <p class="card-text p-3">{{brokerShortInfo.info3}}</p>
+                <p class="card-text p-3" style="color: hotpink;cursor: pointer;"><u><b>Show Full Details of {{brokerShortInfo.brokerName}}</b></u></p>
+    
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+    </div>
+    
+  </div>
+    
